@@ -22,7 +22,6 @@ The above architecture visualizes the **data flow and governance setup**:
 ### 1️⃣ Data Ingestion (Bronze Layer)
 - Ingested raw data from CSV sources — `locations.csv`, `make_details.csv`, and `stolen_vehicles.csv` — using **ADF Copy Data** activity.  
 - Each dataset was stored as **Parquet files** in ADLS Gen2 under the **Bronze container**.
-- Metadata columns (load timestamp, source file name, run ID) were added to track lineage.
 
 ### 2️⃣ Data Transformation and Cleaning (Silver Layer)
 - Cleaned and standardized vehicle data using **PySpark**:
@@ -32,10 +31,7 @@ The above architecture visualizes the **data flow and governance setup**:
 - Stored the transformed datasets in **Silver Delta tables** for validation and incremental loads.
 
 ### 3️⃣ Business-Ready Data (Gold Layer)
-- Created aggregated datasets to support **analytics and KPI dashboards**, including:
-  - Vehicle theft count by **region, make, and year**.  
-  - Top **high-risk zones** and **peak theft times**.  
-  - Average **vehicle recovery time** and success rate.
+- Created aggregated datasets to support **analytics and KPI dashboards**
 - Generated **Gold Delta tables** for downstream BI tools.
 
 ---
